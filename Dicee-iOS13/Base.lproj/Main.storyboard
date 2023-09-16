@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Dicee_iOS13" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Dicee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,6 +71,11 @@
                             <constraint firstItem="3J0-Fk-6ej" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xoe-a4-J5j"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="firstDiceImageView" destination="20D-SI-Gim" id="qfs-bB-ckp"/>
+                        <outlet property="rollButoon" destination="NMP-38-yTP" id="yU7-bs-WLB"/>
+                        <outlet property="secondDiceImageView" destination="EsG-ag-Tmp" id="lWV-cz-9ah"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
