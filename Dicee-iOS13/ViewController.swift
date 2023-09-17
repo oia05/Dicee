@@ -11,8 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var firstDiceImageView: UIImageView!
     @IBOutlet weak var secondDiceImageView: UIImageView!
-        
     @IBOutlet weak var rollButoon: UIButton!
+    
+    private let images = [UIImage(named: "DiceOne"), UIImage(named: "DiceTwo"), UIImage(named: "DiceThree"), UIImage(named: "DiceFour"), UIImage(named: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         manageEvents()
@@ -22,36 +24,13 @@ class ViewController: UIViewController {
         rollButoon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.rollDice)))
     }
     
-    private func getRandomDiceNumber() -> Int {
-        return Int.random(in: 1...6)
-    }
-    
     @objc private func rollDice() {
-        let firstDiceNumber = getRandomDiceNumber()
-        let secondDiceNumber = getRandomDiceNumber()
-        firstDiceImageView.image = mapNumberToImage(number: firstDiceNumber)
-        secondDiceImageView.image = mapNumberToImage(number: secondDiceNumber)
+        firstDiceImageView.image = getRandomDice()
+        secondDiceImageView.image = getRandomDice()
     }
     
-    private func mapNumberToImage(number: Int) -> UIImage? {
-        let diceImage: UIImage?
-        switch number {
-        case 1:
-            diceImage = UIImage(named: "DiceOne")
-        case 2:
-            diceImage = UIImage(named: "DiceTwo")
-        case 3:
-            diceImage = UIImage(named: "DiceThree")
-        case 4:
-            diceImage = UIImage(named: "DiceFour")
-        case 5:
-            diceImage = UIImage(named: "DiceFive")
-        case 6:
-            diceImage = #imageLiteral(resourceName: "DiceSix")
-        default:
-            diceImage = nil
-        }
-        return diceImage
+    private func getRandomDice() -> UIImage {
+        return images.randomElement()!!
     }
 
 
